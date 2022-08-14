@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalDependencies">
+    <plugin id="Key Promoter X" />
+    <plugin id="com.mallowigi" />
+    <plugin id="com.markskelton.one-dark-theme" />
+    <plugin id="com.nasller.CodeGlancePro" />
+    <plugin id="com.tabnine.TabNine" />
+    <plugin id="ink.organics.pojo2json" />
+    <plugin id="intellij.prettierJS" />
+    <plugin id="izhangzhihao.rainbow.brackets" />
+    <plugin id="org.nik.presentation-assistant" />
+    <plugin id="org.sonarlint.idea" />
+    <plugin id="zielu.gittoolbox" />
+  </component>
+</project>
