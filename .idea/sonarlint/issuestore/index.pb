@@ -1,5 +1,3 @@
 
 7
 test.py,a\3\a36e355ddb203d7d4133221f339dc406cb9f480f
-w
-G.idea/sonarlint/issuestore/5/6/5660df1e8b4b5eb9470d1d0438901a55ff838c86,1\4\14c40ee5ae2cdc54b25f9a5464d68cd6c86ebf77
