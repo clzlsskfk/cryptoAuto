@@ -67,28 +67,28 @@ schedule.every().hour.do(lambda: post_message(myToken, slack_channel, "프로그
 while True:
     try:
         now = datetime.datetime.now()
-        start_time = get_start_time("KRW-BTC")  # 09:00
+        start_time = get_start_time("KRW-ETH")  # 09:00
         end_time = start_time + datetime.timedelta(days=1)  # 09:00 + 1일
 
         # 09:00 < 현재 < 08:59:50
         if start_time < now < end_time - datetime.timedelta(seconds=10):
-            target_price = get_target_price("KRW-BTC", 0.5)
-            current_price = get_current_price("KRW-BTC")
-            trades_price = get_trades_price("BTC")
+            target_price = get_target_price("KRW-ETH", 0.5)
+            current_price = get_current_price("KRW-ETH")
+            trades_price = get_trades_price("ETH")
             if target_price < current_price:
                 krw = get_balance("KRW")
-                btc = get_balance("BTC")
+                btc = get_balance("ETH")
                 if krw > 5000:
-                    buy_result = upbit.buy_market_order("KRW-BTC", krw * 0.9995)
-                    post_message(myToken, slack_channel, slack_channel, "BTC buy : " + str(buy_result))
+                    buy_result = upbit.buy_market_order("KRW-ETH", krw * 0.9995)
+                    post_message(myToken, slack_channel, slack_channel, "ETH buy : " + str(buy_result))
                     print("매도")
                 elif current_price > trades_price + (trades_price * 0.02) and btc > 0.00008:
-                    sell_result = upbit.sell_market_order("KRW-BTC", btc * 0.9995)
-                    post_message(myToken, slack_channel, slack_channel, "BTC cell(수익) : " + str(sell_result))
+                    sell_result = upbit.sell_market_order("KRW-ETH", btc * 0.9995)
+                    post_message(myToken, slack_channel, slack_channel, "ETH cell(수익) : " + str(sell_result))
                     print("이익 매수")
                 elif current_price < trades_price - (trades_price * 0.03) and btc > 0.00008:
-                    sell_result = upbit.sell_market_order("KRW-BTC", btc * 0.9995)
-                    post_message(myToken, slack_channel, slack_channel, "BTC cell(손절) : " + str(sell_result))
+                    sell_result = upbit.sell_market_order("KRW-ETH", btc * 0.9995)
+                    post_message(myToken, slack_channel, slack_channel, "ETH cell(손절) : " + str(sell_result))
                     print("손절")
         time.sleep(1)
     except Exception as e:
