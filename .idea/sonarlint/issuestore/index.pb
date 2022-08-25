@@ -15,9 +15,5 @@ A
 testDataList.py,7/1/71da671609ec093365772ef2b84aaa2b5700073d
 >
 backTestEth.py,5/f/5f19c17dfe350db1278b99c3ffd6e553fe0fa01c
-I
-bitcoinAutoTradeWithMA.py,5/6/5660df1e8b4b5eb9470d1d0438901a55ff838c86
-C
-bitcoinAutoTrade.py,b/2/b2f21322c55c4557345ac1795e775644654d69d9
 L
 bitcoinAutoTradeWithSlack.py,f/b/fb659c0641dc0ee1d78ce5a9caf53c46467ac611

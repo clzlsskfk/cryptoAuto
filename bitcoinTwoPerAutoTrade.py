@@ -77,21 +77,21 @@ while True:
             trades_price = get_trades_price("ETH")
             if target_price < current_price:
                 krw = get_balance("KRW")
-                btc = get_balance("ETH")
+                coin = get_balance("ETH")
                 if krw > 5000:
                     buy_result = upbit.buy_market_order("KRW-ETH", krw * 0.9995)
-                    post_message(myToken, slack_channel, slack_channel, "ETH buy : " + str(buy_result))
-                    print("매도")
-                elif current_price > trades_price + (trades_price * 0.02) and btc > 0.00008:
-                    sell_result = upbit.sell_market_order("KRW-ETH", btc * 0.9995)
-                    post_message(myToken, slack_channel, slack_channel, "ETH cell(수익) : " + str(sell_result))
-                    print("이익 매수")
-                elif current_price < trades_price - (trades_price * 0.03) and btc > 0.00008:
-                    sell_result = upbit.sell_market_order("KRW-ETH", btc * 0.9995)
-                    post_message(myToken, slack_channel, slack_channel, "ETH cell(손절) : " + str(sell_result))
+                    post_message(myToken, slack_channel, "ETH buy : " + str(buy_result))
+                    print("매수")
+                elif current_price > trades_price + (trades_price * 0.02) and coin > 0.00008:
+                    sell_result = upbit.sell_market_order("KRW-ETH", coin * 0.9995)
+                    post_message(myToken, slack_channel, "ETH cell(수익) : " + str(sell_result))
+                    print("이익 매도")
+                elif current_price < trades_price - (trades_price * 0.03) and coin > 0.00008:
+                    sell_result = upbit.sell_market_order("KRW-ETH", coin * 0.9995)
+                    post_message(myToken, slack_channel, "ETH cell(손절) : " + str(sell_result))
                     print("손절")
         time.sleep(1)
     except Exception as e:
         print(e)
-        post_message(myToken, slack_channel, slack_channel, e)
+        post_message(myToken, slack_channel, e)
         time.sleep(1)
