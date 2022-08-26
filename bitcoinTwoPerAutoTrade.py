@@ -5,12 +5,13 @@ import datetime
 import requests
 import schedule
 
-myToken = "xoxb-3935319848149-3940742978484-J9c0BduoMpbZNN3dFymdR15O"
-slack_channel = "#coin"
-
+# 업비트
 access = "9eoEhq1tzNI2MnGo5B1xG6iVWiSA4bqxgLbnGi5Z"
 secret = "WQEaUd2ux1wxRx7QRzaag4iIBv4hWFuQzbNRAsRK"
 
+# 슬랙
+myToken = "xoxb-3935319848149-3940742978484-ZslVGfVLmY6NnpkLmGGXkUF8"
+slack_channel = "#coin"
 
 def post_message(token, channel, text):
     """슬랙 메시지 전송"""
@@ -18,7 +19,6 @@ def post_message(token, channel, text):
                              headers={"Authorization": "Bearer " + token},
                              data={"channel": channel, "text": text})
     print(response)
-
 
 def get_target_price(ticker, k):
     """변동성 돌파 전략으로 매수 목표가 조회"""
@@ -57,7 +57,7 @@ def get_trades_price(ticker):
 
 # 로그인
 upbit = pyupbit.Upbit(access, secret)
-print("autotrade start")
+print("autotrade start : " + str(datetime.datetime.now()))
 
 # 시작 메세지 슬랙 전송
 post_message(myToken, slack_channel, "자동 2% 이익실현 autotrade start")

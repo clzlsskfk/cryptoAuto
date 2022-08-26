@@ -17,3 +17,11 @@ A
 backTestEth.py,5/f/5f19c17dfe350db1278b99c3ffd6e553fe0fa01c
 L
 bitcoinAutoTradeWithSlack.py,f/b/fb659c0641dc0ee1d78ce5a9caf53c46467ac611
+I
+bitcoinAutoTradeWithAI.py,3/f/3fcfa27d838f5dca21fcd75c84682ea2c4feec9c
+7
+test.py,a/3/a36e355ddb203d7d4133221f339dc406cb9f480f
+I
+bitcoinAutoTradeWithMA.py,5/6/5660df1e8b4b5eb9470d1d0438901a55ff838c86
+C
+bitcoinAutoTrade.py,b/2/b2f21322c55c4557345ac1795e775644654d69d9
