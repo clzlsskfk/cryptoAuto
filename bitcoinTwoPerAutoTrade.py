@@ -10,8 +10,13 @@ access = "9eoEhq1tzNI2MnGo5B1xG6iVWiSA4bqxgLbnGi5Z"
 secret = "WQEaUd2ux1wxRx7QRzaag4iIBv4hWFuQzbNRAsRK"
 
 # 슬랙
-myToken = "xoxb-3935319848149-3940742978484-ZslVGfVLmY6NnpkLmGGXkUF8"
+myToken = "xoxb-3935319848149-3940742978484-96lBHaXusDfhqKC2cJ1h0bRF"
 slack_channel = "#coin"
+
+
+def print(response):
+    pass
+
 
 def post_message(token, channel, text):
     """슬랙 메시지 전송"""
@@ -86,10 +91,10 @@ while True:
                     sell_result = upbit.sell_market_order("KRW-ETH", coin * 0.9995)
                     post_message(myToken, slack_channel, "ETH cell(수익) : " + str(sell_result))
                     print("이익 매도")
-                elif current_price < trades_price - (trades_price * 0.03) and coin > 0.00008:
-                    sell_result = upbit.sell_market_order("KRW-ETH", coin * 0.9995)
-                    post_message(myToken, slack_channel, "ETH cell(손절) : " + str(sell_result))
-                    print("손절")
+            elif current_price < trades_price - (trades_price * 0.03) and coin > 0.00008:
+                sell_result = upbit.sell_market_order("KRW-ETH", coin * 0.9995)
+                post_message(myToken, slack_channel, "ETH cell(손절) : " + str(sell_result))
+                print("손절")
         time.sleep(1)
     except Exception as e:
         print(e)

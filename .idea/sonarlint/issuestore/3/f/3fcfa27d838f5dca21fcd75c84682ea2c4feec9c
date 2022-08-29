@@ -1,0 +1,5 @@
+
+^python:S1192I"FDefine a constant instead of duplicating this literal "#coin" 4 times.(Í´ìÉ
+Ipython:S1481",Remove the unused local variable "response".(ˆÍýžûÿÿÿÿ
+opython:S117<"XRename this local variable "closeDf" to match the regular expression ^[_a-z][a-z0-9_]*$.(·Î
+wpython:S117?"[Rename this local variable "closeValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ý½øöÿÿÿÿÿ

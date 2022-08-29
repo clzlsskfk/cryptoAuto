@@ -6,7 +6,7 @@ access = "9eoEhq1tzNI2MnGo5B1xG6iVWiSA4bqxgLbnGi5Z"          # 본인 값으로 
 secret = "WQEaUd2ux1wxRx7QRzaag4iIBv4hWFuQzbNRAsRK"          # 본인 값으로 변경
 upbit = pyupbit.Upbit(access, secret)
 
-myToken = "xoxb-3935319848149-3940742978484-J9c0BduoMpbZNN3dFymdR15O"
+myToken = "xoxb-3935319848149-3940742978484-96lBHaXusDfhqKC2cJ1h0bRF"
 
 def post_message(token, channel, text):
     """슬랙 메시지 전송"""
@@ -17,7 +17,6 @@ def post_message(token, channel, text):
 
 
 message = post_message(myToken, "#coin", "할로")
-print(message)
 
 # print(upbit.get_balance("KRW-BTC"))     # KRW-XRP 조회
 # print(upbit.get_balance("KRW"))         # 보유 현금 조회
