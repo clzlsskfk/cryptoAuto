@@ -23,5 +23,5 @@ I
 bitcoinAutoTradeWithMA.py,5/6/5660df1e8b4b5eb9470d1d0438901a55ff838c86
 C
 bitcoinAutoTrade.py,b/2/b2f21322c55c4557345ac1795e775644654d69d9
-S
-#.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
+H
+bitcoinAutoTwoPerTest.py,e/b/eb92bad4a0289ca1c15b5f100d8f55f3a1602a16
