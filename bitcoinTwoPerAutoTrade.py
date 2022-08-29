@@ -14,10 +14,6 @@ myToken = "xoxb-3935319848149-3940742978484-96lBHaXusDfhqKC2cJ1h0bRF"
 slack_channel = "#coin"
 
 
-def print(response):
-    pass
-
-
 def post_message(token, channel, text):
     """슬랙 메시지 전송"""
     response = requests.post("https://slack.com/api/chat.postMessage",
@@ -66,7 +62,6 @@ print("autotrade start : " + str(datetime.datetime.now()))
 
 # 시작 메세지 슬랙 전송
 post_message(myToken, slack_channel, "자동 2% 이익실현 autotrade start")
-schedule.every().hour.do(lambda: post_message(myToken, slack_channel, "프로그램 실행 중"))
 
 # 자동매매 시작
 while True:
@@ -80,9 +75,9 @@ while True:
             target_price = get_target_price("KRW-ETH", 0.5)
             current_price = get_current_price("KRW-ETH")
             trades_price = get_trades_price("ETH")
+            krw = get_balance("KRW")
+            coin = get_balance("ETH")
             if target_price < current_price:
-                krw = get_balance("KRW")
-                coin = get_balance("ETH")
                 if krw > 5000:
                     buy_result = upbit.buy_market_order("KRW-ETH", krw * 0.9995)
                     post_message(myToken, slack_channel, "ETH buy : " + str(buy_result))
@@ -95,6 +90,7 @@ while True:
                 sell_result = upbit.sell_market_order("KRW-ETH", coin * 0.9995)
                 post_message(myToken, slack_channel, "ETH cell(손절) : " + str(sell_result))
                 print("손절")
+        schedule.every().hour.do(lambda: post_message(myToken, slack_channel, "프로그램 실행 중"))
         time.sleep(1)
     except Exception as e:
         print(e)
