@@ -10,7 +10,7 @@ access = "9eoEhq1tzNI2MnGo5B1xG6iVWiSA4bqxgLbnGi5Z"
 secret = "WQEaUd2ux1wxRx7QRzaag4iIBv4hWFuQzbNRAsRK"
 
 # 슬랙
-myToken = "xoxb-3935319848149-3940742978484-96lBHaXusDfhqKC2cJ1h0bRF"
+myToken = "xoxb-3935319848149-3940742978484-IFlYCrb2oQhYCYorRzvBGqio"
 slack_channel = "#coin"
 
 # 코인명
@@ -21,7 +21,7 @@ coinName = "CHZ"
 def post_message(token, channel, text):
     """슬랙 메시지 전송"""
     response = requests.post("https://slack.com/api/chat.postMessage",
-                             headers={"Authorization": "Bearer " + token},
+            headers={"Authorization": "Bearer " + token},
                              data={"channel": channel, "text": text})
     print(response)
 
