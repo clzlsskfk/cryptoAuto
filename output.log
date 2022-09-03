@@ -1,9 +1,0 @@
-nohup: ignoring input
-autotrade start : 2022-09-03 16:19:03.310808
-<Response [200]>
-<Response [200]>
-<Response [200]>
-<Response [200]>
-매수값 = 0코인 = {'uuid': 'd19d7124-4bca-4e66-8e77-8051e2db0d28', 'side': 'bid', 'ord_type': 'price', 'price': '48403.6169', 'state': 'wait', 'market': 'KRW-CHZ', 'created_at': '2022-09-03T16:21:28+09:00', 'volume': None, 'remaining_volume': None, 'reserved_fee': '24.20180845', 'remaining_fee': '24.20180845', 'paid_fee': '0.0', 'locked': '48427.81870845', 'executed_volume': '0.0', 'trades_count': 0}로 매수 완료
-이익 실현가는 0.0
-손절가는 0.0
