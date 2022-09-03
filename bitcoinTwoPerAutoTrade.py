@@ -10,18 +10,18 @@ access = "9eoEhq1tzNI2MnGo5B1xG6iVWiSA4bqxgLbnGi5Z"
 secret = "WQEaUd2ux1wxRx7QRzaag4iIBv4hWFuQzbNRAsRK"
 
 # 슬랙
-myToken = "xoxb-3935319848149-3940742978484-96lBHaXusDfhqKC2cJ1h0bRF"
+myToken = "xoxb-3935319848149-3940742978484-IFlYCrb2oQhYCYorRzvBGqio"
 slack_channel = "#coin"
 
 # 코인명
-ticker = "KRW-ETH"
-coinName = "ETH"
+ticker = "KRW-CHZ"
+coinName = "CHZ"
 
 
 def post_message(token, channel, text):
     """슬랙 메시지 전송"""
     response = requests.post("https://slack.com/api/chat.postMessage",
-                             headers={"Authorization": "Bearer " + token},
+            headers={"Authorization": "Bearer " + token},
                              data={"channel": channel, "text": text})
     print(response)
 
@@ -84,7 +84,7 @@ while True:
             if target_price < current_price:
                 if krw > 5000:
                     buy_result = upbit.buy_market_order(ticker, krw * 0.9995)
-                    post_message(myToken, slack_channel, "ETH buy : " + str(buy_result))
+                    post_message(myToken, slack_channel, str(coinName) + " buy : " + str(buy_result))
                     post_message(myToken, slack_channel, "이익 실현가는 " + str(trades_price + (trades_price * 0.02)))
                     post_message(myToken, slack_channel, "손절가는 " + str(trades_price - (trades_price * 0.03)))
                     print("매수값 = " + str(trades_price) + "코인 = " + str(buy_result) + "로 매수 완료")
@@ -92,11 +92,11 @@ while True:
                     print("손절가는 " + str(trades_price - (trades_price * 0.03)))
                 elif current_price > trades_price + (trades_price * 0.016) and coin > 0.00008:
                     sell_result = upbit.sell_market_order(ticker, coin * 0.9995)
-                    post_message(myToken, slack_channel, "ETH cell(수익) : " + str(sell_result))
+                    post_message(myToken, slack_channel, str(coinName) + " cell(수익) : " + str(sell_result))
                     print("이익 매도 완료")
             elif current_price < trades_price - (trades_price * 0.03) and coin > 0.00008:
                 sell_result = upbit.sell_market_order(ticker, coin * 0.9995)
-                post_message(myToken, slack_channel, "ETH cell(손절) : " + str(sell_result))
+                post_message(myToken, slack_channel, str(coinName) + " cell(손절) : " + str(sell_result))
                 print("손절 완료")
         schedule.every().hour.do(lambda: post_message(myToken, slack_channel, "프로그램 실행 중"))
         time.sleep(1)
