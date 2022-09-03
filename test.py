@@ -1,8 +1,5 @@
 import pyupbit
 
-import requests
-from holidays import ETH
-
 access = "9eoEhq1tzNI2MnGo5B1xG6iVWiSA4bqxgLbnGi5Z"          # 본인 값으로 변경
 secret = "WQEaUd2ux1wxRx7QRzaag4iIBv4hWFuQzbNRAsRK"          # 본인 값으로 변경
 upbit = pyupbit.Upbit(access, secret)
@@ -16,12 +13,13 @@ upbit = pyupbit.Upbit(access, secret)
 #                              data={"channel": channel, "text": text})
 #     print(response)
 #
+coin = upbit.get_balances()
 
-price = upbit.get_avg_buy_price("ETH")
+price = upbit.get_avg_buy_price(ticker='ETH')
 
 total = price + (price * 0.02)
 
-print(total)
+print(price + (price * 0.02))
 
 # message = post_message(myToken, "#coin", "할로")
 
