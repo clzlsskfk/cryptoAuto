@@ -10,12 +10,12 @@ access = "9eoEhq1tzNI2MnGo5B1xG6iVWiSA4bqxgLbnGi5Z"
 secret = "WQEaUd2ux1wxRx7QRzaag4iIBv4hWFuQzbNRAsRK"
 
 # 슬랙
-myToken = "xoxb-3935319848149-3940742978484-IFlYCrb2oQhYCYorRzvBGqio"
+myToken = "xoxb-3935319848149-3940742978484-6ULC90uT7vINLAfgEayH4nIz"
 slack_channel = "#coin"
 
 # 코인명
-ticker = "KRW-CHZ"
-coinName = "CHZ"
+ticker = "KRW-ETH"
+coinName = "ETH"
 
 
 def post_message(token, channel, text):
