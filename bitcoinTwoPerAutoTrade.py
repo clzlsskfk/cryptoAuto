@@ -59,6 +59,13 @@ def get_current_price(ticker):
 def get_trades_price(ticker):
     return upbit.get_avg_buy_price(ticker)
 
+# 매수 수수료 = 체결가격(KRW) × 체결수량 × 거래 수수료율(%)
+# 매도 수수료 = 체결가격(KRW) × 거래 수수료율(%)
+def get_fee(ticker):
+    buy_fee = upbit.get_avg_buy_price(ticker) * upbit.get_balance(ticker=ticker) * 0.0005
+    sell_fee = get_current_price(ticker) * 0.0005
+    result = buy_fee + sell_fee
+    return result
 
 # 로그인
 upbit = pyupbit.Upbit(access, secret)
@@ -82,20 +89,22 @@ while True:
             trades_price = get_trades_price(ticker)
             krw = get_balance("KRW")
             coin = get_balance(coinName)
+            fee = 0.0
             if target_price < current_price:
                 if krw > 5000:
                     buy_result = upbit.buy_market_order(ticker, krw * 0.9995)
+                    fee = get_fee(ticker)
                     post_message(myToken, slack_channel, str(coinName) + " buy : " + str(buy_result))
                     post_message(myToken, slack_channel, "이익 실현가는 " + str(trades_price + (trades_price * 0.02)))
                     post_message(myToken, slack_channel, "손절가는 " + str(trades_price - (trades_price * 0.03)))
                     print("매수값 = " + str(trades_price) + "코인 = " + str(buy_result) + "로 매수 완료")
                     print("이익 실현가는 " + str(trades_price + (trades_price * 0.004)))
                     print("손절가는 " + str(trades_price - (trades_price * 0.006)))
-                elif current_price > trades_price + (trades_price * 0.004) and coin > 0.00008:
+                elif current_price > trades_price + (trades_price * 0.003) - fee and coin > 0.00008:
                     sell_result = upbit.sell_market_order(ticker, coin * 0.9995)
                     post_message(myToken, slack_channel, str(coinName) + " cell(수익) : " + str(sell_result))
                     print("이익 매도 완료")
-            elif current_price < trades_price - (trades_price * 0.005) and coin > 0.00008:
+            elif current_price < trades_price - (trades_price * 0.005) + fee and coin > 0.00008:
                 sell_result = upbit.sell_market_order(ticker, coin * 0.9995)
                 post_message(myToken, slack_channel, str(coinName) + " cell(손절) : " + str(sell_result))
                 print("손절 완료")
