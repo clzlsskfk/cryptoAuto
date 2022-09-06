@@ -10,7 +10,7 @@ access = "9eoEhq1tzNI2MnGo5B1xG6iVWiSA4bqxgLbnGi5Z"
 secret = "WQEaUd2ux1wxRx7QRzaag4iIBv4hWFuQzbNRAsRK"
 
 # 슬랙
-myToken = "xoxb-3935319848149-3940742978484-6ULC90uT7vINLAfgEayH4nIz"
+myToken = "xoxb-3935319848149-3940742978484-84ACbo21YRE3FYfj81uYO7Od"
 slack_channel = "#coin"
 
 # 코인명
