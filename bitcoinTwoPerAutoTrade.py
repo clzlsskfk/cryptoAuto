@@ -65,7 +65,7 @@ upbit = pyupbit.Upbit(access, secret)
 print("autotrade start : " + str(datetime.datetime.now()))
 
 # 시작 메세지 슬랙 전송
-post_message(myToken, slack_channel, "자동 2% 이익실현 autotrade start")
+post_message(myToken, slack_channel, "자동 0.3% 이익실현 autotrade start")
 
 # 자동매매 시작
 while True:
@@ -89,13 +89,13 @@ while True:
                     post_message(myToken, slack_channel, "이익 실현가는 " + str(trades_price + (trades_price * 0.02)))
                     post_message(myToken, slack_channel, "손절가는 " + str(trades_price - (trades_price * 0.03)))
                     print("매수값 = " + str(trades_price) + "코인 = " + str(buy_result) + "로 매수 완료")
-                    print("이익 실현가는 " + str(trades_price + (trades_price * 0.02)))
-                    print("손절가는 " + str(trades_price - (trades_price * 0.03)))
-                elif current_price > trades_price + (trades_price * 0.016) and coin > 0.00008:
+                    print("이익 실현가는 " + str(trades_price + (trades_price * 0.004)))
+                    print("손절가는 " + str(trades_price - (trades_price * 0.006)))
+                elif current_price > trades_price + (trades_price * 0.004) and coin > 0.00008:
                     sell_result = upbit.sell_market_order(ticker, coin * 0.9995)
                     post_message(myToken, slack_channel, str(coinName) + " cell(수익) : " + str(sell_result))
                     print("이익 매도 완료")
-            elif current_price < trades_price - (trades_price * 0.03) and coin > 0.00008:
+            elif current_price < trades_price - (trades_price * 0.005) and coin > 0.00008:
                 sell_result = upbit.sell_market_order(ticker, coin * 0.9995)
                 post_message(myToken, slack_channel, str(coinName) + " cell(손절) : " + str(sell_result))
                 print("손절 완료")
